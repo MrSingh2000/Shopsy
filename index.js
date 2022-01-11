@@ -15,10 +15,6 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cors());
 // app.use(express.json({limit: '10mb'}));
 
-app.get('/', (req, res) => {
-  res.send('This is Home Page');
-});
-
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/item', require('./routes/item'));
 app.use('/api/comment', require('./routes/comment'));
