@@ -21,7 +21,7 @@ export default function CommentModal(props) {
     }
 
     const sendData = async () => {
-        let response = await fetch(`http://localhost:5000/api/comment/submit/${id}`, {
+        let response = await fetch(`/api/comment/submit/${id}`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",

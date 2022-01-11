@@ -13,7 +13,7 @@ export default function ProductDetail() {
     const [productDetails, setproductDetails] = useState(null);
     // fetch data for that product id
     const fetchDetails = async () => {
-        let res = await fetch(`http://localhost:5000/api/products/${id}`, {
+        let res = await fetch(`/api/products/${id}`, {
             method: 'GET',
         });
         let data = await res.json();
@@ -28,7 +28,7 @@ export default function ProductDetail() {
     const [allComments, setallComments] = useState([]);
 
     const getComments = async () => {
-        let res = await fetch(`http://localhost:5000/api/comment/all/${id}`, {
+        let res = await fetch(`/api/comment/all/${id}`, {
             method: 'GET',
         });
         let data = await res.json();

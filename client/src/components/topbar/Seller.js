@@ -28,7 +28,7 @@ export default function Seller() {
             category: product.category
         }
         data.append("product", JSON.stringify(sendProduct));
-        let url = `http://localhost:5000/api/item/add`;
+        let url = `/api/item/add`;
         fetch(url, {
             method: 'POST',
             headers: {

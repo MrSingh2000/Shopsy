@@ -15,7 +15,7 @@ export default function Products() {
     useEffect(() => {
         const getData = async () => {
             setLoader(true);
-            let response = await fetch('http://localhost:5000/api/products/allproducts', {
+            let response = await fetch('/api/products/allproducts', {
                 method: 'GET',
             }
             )
