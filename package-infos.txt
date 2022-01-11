@@ -1,0 +1,10 @@
+dependencies =>
+    dotenv: allows to use environmental variables
+    express: ExpressJS engine
+    express-validator: Used on backend to validate request parameters with some conditions
+    jsonwebtoken: Used on backend to make a usable web-token
+    mongoose: allows use of MongoDB in nodejs
+    multer: Multer is nodejs middleware used for uploading files.
+
+dev-dependencies =>
+    nodemon: helps restart server automatically after crashing

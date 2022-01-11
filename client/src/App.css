@@ -1,0 +1,77 @@
+/* CUSTOM FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap');
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.font1 {
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+.font2{
+  font-family: 'Ubuntu', sans-serif;
+}
+.font3{
+  font-family: 'Mukta', sans-serif;
+}
+.font4{
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+/* custom scrollBars */
+.scrollBar1::-webkit-scrollbar {
+  background-color: white;
+  width: 7px;
+  border-radius: 10px;
+}
+.scrollBar1::-webkit-scrollbar-button {
+  display: none;
+}
+.scrollBar1::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: black;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+
+.scrollBar2::-webkit-scrollbar{
+  background-color:white;
+  height: 10px;
+  scroll-behavior: smooth;
+}
+.scrollBar2::-webkit-scrollbar-button {
+  display: none;
+}
+.scrollBar2::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: pink;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}
