@@ -4,11 +4,12 @@ import { Dialog, Transition } from '@headlessui/react'
 import { BiCommentAdd } from "react-icons/bi"
 import { useParams } from 'react-router-dom';
 import {commentSentTrue} from "./state/action-creaters/commentSentActions";
+import { useSelector } from 'react-redux';
 
 export default function CommentModal(props) {
     let { open, setOpen } = props;
     let {id} = useParams();
-
+    const authToken = useSelector(state => state.authToken);
     const cancelButtonRef = useRef(null);
 
     const [comment, setcomment] = useState({ title: "", review: "", star: 0 });
@@ -21,11 +22,11 @@ export default function CommentModal(props) {
     }
 
     const sendData = async () => {
-        let response = await fetch(`/api/comment/submit/${id}`, {
+        let response = await fetch(`${process.env.REACT_APP_HOST}/api/comment/submit/${id}`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
-                'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MjY4ZWVlYmU2MWE1ZTdhMWU5MzEwIn0sImlhdCI6MTYzNzMzODg1OX0.Kn_EyTZNYtYgLxFXciokFSbJ-2jTaktusYcSA1z_pmU',
+                'auth-token': authToken,
             },
             body: JSON.stringify(comment)
         });

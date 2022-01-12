@@ -15,7 +15,7 @@ export default function Login() {
     const authToken = useSelector(state => state.authToken)
     const userLogin = async (e) => {
         e.preventDefault();
-        let url = `/api/auth/login`;
+        let url = `${process.env.REACT_APP_HOST}/api/auth/login`;
         let res = await fetch(url, {
             method: "POST",
             headers: {

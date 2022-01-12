@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 
 export default function MyProducts() {
     const loader = useSelector(state => state.loader);
+    const authToken = useSelector(state => state.authToken);
 
     let { setLoader } = loaderActions;
 
@@ -18,11 +19,11 @@ export default function MyProducts() {
 
     const getMyProducts = async () => {
         setLoader(true);
-        let url = `/api/item/myItems`;
+        let url = `${process.env.REACT_APP_HOST}/api/item/myItems`;
         let res = await fetch(url, {
             method: 'GET',
             headers: {
-                'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MjY4ZWVlYmU2MWE1ZTdhMWU5MzEwIn0sImlhdCI6MTYzNzMzODg1OX0.Kn_EyTZNYtYgLxFXciokFSbJ-2jTaktusYcSA1z_pmU'
+                'auth-token': authToken
             }
         })
         let data = await res.json();

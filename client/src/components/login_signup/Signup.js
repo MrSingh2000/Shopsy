@@ -15,7 +15,7 @@ export default function Signup() {
     // we also verify if any user exists with same credentials (within same api on backend)
     const userRegister = async (e) => {
         e.preventDefault();
-        let url = `/api/auth/register`;
+        let url = `${process.env.REACT_APP_HOST}/api/auth/register`;
         let data = {
             name: details.firstName + " " + details.lastName,
             mail: details.mail,

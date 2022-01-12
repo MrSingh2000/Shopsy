@@ -13,7 +13,7 @@ export default function ProductsByCategory() {
     const loader = useSelector(state => state.loader);
     const getProducts = async () => {
         setLoader(true);
-        let url = `/api/products/filter?category=${category}`;
+        let url = `${process.env.REACT_APP_HOST}/api/products/filter?category=${category}`;
         let res = await fetch(url, {
             method: "GET",
         });

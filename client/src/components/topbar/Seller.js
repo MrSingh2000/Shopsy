@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { IoMdCloudUpload } from 'react-icons/io';
 import { TiImage } from 'react-icons/ti';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { notify } from '../commonFunctions';
 import noImg from '../icons/no_card.jpg';
 
 export default function Seller() {
     let navigate = useNavigate();
-
+const authToken = useSelector(state => state.authToken);
     const [product, setproduct] = useState({ title: "", seller: "", description: "", price: 0, currency: "", category: "" });
 
     const onChange = (e) => {
@@ -28,11 +29,11 @@ export default function Seller() {
             category: product.category
         }
         data.append("product", JSON.stringify(sendProduct));
-        let url = `/api/item/add`;
+        let url = `${process.env.REACT_APP_HOST}/api/item/add`;
         fetch(url, {
             method: 'POST',
             headers: {
-                'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MjY4ZWVlYmU2MWE1ZTdhMWU5MzEwIn0sImlhdCI6MTYzNzMzODg1OX0.Kn_EyTZNYtYgLxFXciokFSbJ-2jTaktusYcSA1z_pmU',
+                'auth-token': authToken,
             },
             body: data
         }).then((response) => {

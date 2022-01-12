@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 
 function EditProduct() {
     const loader = useSelector(state => state.loader);
+    const authToken = useSelector(state => state.authToken);
     let navigate = useNavigate();
     let { id } = useParams();
     const [product, setproduct] = useState({ title: "", description: "", price: 0 });
@@ -20,7 +21,7 @@ function EditProduct() {
         let res = await fetch(url, {
             method: 'GET',
             headers: {
-                'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MjY4ZWVlYmU2MWE1ZTdhMWU5MzEwIn0sImlhdCI6MTYzNzMzODg1OX0.Kn_EyTZNYtYgLxFXciokFSbJ-2jTaktusYcSA1z_pmU'
+                'auth-token': authToken,
             }
         });
         let data = await res.json();
@@ -46,7 +47,7 @@ function EditProduct() {
     const editProduct = (e) => {
         e.preventDefault();
         setLoader(true);
-        let url = `/api/item/edit/${id}`;
+        let url = `${process.env.REACT_APP_HOST}/api/item/edit/${id}`;
         if (media) {
             console.log("here");
             let data = new FormData();
@@ -60,7 +61,7 @@ function EditProduct() {
             fetch(url, {
                 method: 'POST',
                 headers: {
-                    'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MjY4ZWVlYmU2MWE1ZTdhMWU5MzEwIn0sImlhdCI6MTYzNzMzODg1OX0.Kn_EyTZNYtYgLxFXciokFSbJ-2jTaktusYcSA1z_pmU',
+                    'auth-token': authToken,
                 },
                 body: data
             }).then((response) => {
@@ -82,7 +83,7 @@ function EditProduct() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MjY4ZWVlYmU2MWE1ZTdhMWU5MzEwIn0sImlhdCI6MTYzNzMzODg1OX0.Kn_EyTZNYtYgLxFXciokFSbJ-2jTaktusYcSA1z_pmU',
+                    'auth-token': authToken,
                 },
                 body: JSON.stringify(sendProduct)
             }).then((response) => {

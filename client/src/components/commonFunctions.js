@@ -29,7 +29,7 @@ export function notify(message, type, id = "productAdded") {
 }
 
 export async function verifyToken(authToken) {
-    let url = `/api/auth/getuser`;
+    let url = `${process.env.REACT_APP_HOST}/api/auth/getuser`;
     let res = await fetch(url, {
         method: 'GET',
         headers: {
