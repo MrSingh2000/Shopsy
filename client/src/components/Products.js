@@ -15,7 +15,7 @@ export default function Products() {
     useEffect(() => {
         const getData = async () => {
             setLoader(true);
-            let response = await fetch('${process.env.REACT_APP_HOST}/api/products/allproducts', {
+            let response = await fetch(`${process.env.REACT_APP_HOST}/api/products/allproducts`, {
                 method: 'GET',
             }
             )

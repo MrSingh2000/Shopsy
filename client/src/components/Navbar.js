@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, Outlet, NavLink } from 'react-router-dom';
+import { Link, Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { notify } from './commonFunctions';
@@ -9,16 +9,8 @@ import logOutIcon from "./icons/logout.png";
 import { removeToken } from './state/action-creaters/authTokenactions';
 
 export default function Navbar() {
+    let navigate = useNavigate();
     const authToken = useSelector(state => state.authToken);
-    const [display, setdisplay] = useState("");
-    const showShop = () => {
-        if (display === "hidden") {
-            setdisplay("");
-        }
-        else {
-            setdisplay("hidden");
-        }
-    }
 
     const [mobileMenu, setmobileMenu] = useState(false);
     const handleMobile = () => {
@@ -33,6 +25,7 @@ export default function Navbar() {
     const handleLogout = () => {
         localStorage.clear();
         removeToken();
+        navigate("/");
         notify("Logout SuccessFul!", "success");
     }
 
@@ -126,7 +119,7 @@ export default function Navbar() {
                 </div>
 
 
-                <div className={`py-3 mt-3 mx-3 overflow-scroll bg-black md:overflow-hidden whitespace-nowrap ${display}`}>
+                <div className={`py-3 mt-3 mx-3 overflow-scroll bg-black md:overflow-hidden whitespace-nowrap`}>
                     <NavLink style={({ isActive }) => {
                         return {
                             backgroundColor: isActive ? "#4B5563" : "black",
