@@ -10,7 +10,7 @@ const itemSchema = new Schema({
         type: String
     },
     image: {
-        data: Buffer,
+        data: String,
         contentType: String
     },
     category: {

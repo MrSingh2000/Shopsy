@@ -17,7 +17,7 @@ function EditProduct() {
 
     const getDetails = async () => {
         setLoader(true);
-        let url = `/api/products/${id}`;
+        let url = `${process.env.REACT_APP_HOST}/api/products/${id}`;
         let res = await fetch(url, {
             method: 'GET',
             headers: {
@@ -30,7 +30,7 @@ function EditProduct() {
             description: data.info.description,
             price: data.price
         });
-        setprevImg(`data:${data.image.contentType};base64,${bufferToBase64(data.image.data.data)}`);
+        setprevImg(`data:${data.image.contentType};base64,${bufferToBase64(data.image.data)}`);
         setTimeout(() => {
             setLoader(false);
         }, 500);

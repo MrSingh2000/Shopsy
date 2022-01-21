@@ -66,7 +66,7 @@ export default function MyProducts() {
                     {myProducts.map((item) => {
                         return (
                             <div className="shadow-lg rounded-2xl bg-white sm:w-64 m-auto p-2 mt-2" key={item._id}>
-                                <img src={item.image ? `data:${item.image.contentType};base64,${bufferToBase64(item.image.data.data)}` : img} alt="adidas" style={{ height: '170px', width: '240px' }} className="p-4 m-auto" />
+                                <img src={item.image ? `data:${item.image.contentType};base64,${bufferToBase64(item.image.data)}` : img} alt="adidas" style={{ height: '170px', width: '240px' }} className="p-4 m-auto" />
                                 <div className="bg-pink-200 m-3 p-4 rounded-lg">
                                     <p className="text-white text-xl font-bold ">
                                         {item.name}

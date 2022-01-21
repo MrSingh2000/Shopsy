@@ -1,11 +1,17 @@
 import { toast } from "react-toastify";
 
 export function bufferToBase64(img) {
-    let buf = new Uint8Array(img);
-    var binstr = Array.prototype.map.call(buf, function (ch) {
-        return String.fromCharCode(ch);
-    }).join('');
-    return btoa(binstr);
+    // INITIALLY I USED THIS CODE TO CONVERT THE BUFFER RECIEVED FROM BACKEND TO base64
+    // BUT LATER ON I CHANGED TO CODE ON BACKEND AND NOW IT PROVIDES base64 AT FIRST PLACE, SO INSTEAD OF
+    // REMOVING THIS FUNCTION FROM WHOLE CODE BASE I DECIDED TO REMOVE ITS FUNCTIONALITY, FOR THE SAKE OF TIME
+
+    // let buf = new Uint8Array(img);
+    // var binstr = Array.prototype.map.call(buf, function (ch) {
+    //     return String.fromCharCode(ch);
+    // }).join('');
+    // return btoa(binstr);
+    
+    return img;
 }
 
 export function notify(message, type, id = "productAdded") {

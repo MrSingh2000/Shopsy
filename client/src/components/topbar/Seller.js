@@ -37,8 +37,12 @@ const authToken = useSelector(state => state.authToken);
             },
             body: data
         }).then((response) => {
+            if(response.error){
+                notify(response.message);
+                return;
+            }
             notify("Product Submitted Successfully!", "success");
-            navigate("/");
+            // navigate("/");
         }).catch((err) => {
             console.log('error: ', err);
             notify(err, "error");

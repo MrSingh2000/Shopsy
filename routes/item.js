@@ -17,14 +17,19 @@ require('dotenv').config();
 const fetchuser = require('../middleware/fetchuser');
 // multer for file handling
 const multer = require('multer');
-var storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, `${__dirname}/uploads`)
-    },
-    filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now())
-    }
-});
+
+// TO STORE THE DATA ON DISK STORAGE
+// var storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, `${__dirname}/uploads`)
+//     },
+//     filename: (req, file, cb) => {
+//         cb(null, file.fieldname + '-' + Date.now())
+//     }
+// });
+
+// TO STORE THE DATA ON MEMORY AND NOT ON DISK
+var storage = multer.memoryStorage();
 
 var upload = multer({ storage: storage });
 
@@ -72,23 +77,30 @@ router.post('/add', [upload.single('image'), fetchuser], async (req, res) => {
         //     console.log("File error block");
         // }
         // let urlmine = `${__dirname}/uploads/${req.file.filename}`;
+        // console.log(req.file.buffer.toString("base64").substring(0,10));
+        // console.log(fs.readFileSync(req.file.buffer.toString("base64")));
+        // console.log(req.file);
+        // res.send(req.file.buffer.toString('base64'));
+        // return;
 
         // create an item with the information
         Item.create({
             name, price, info, seller, userId: user.id, category,
             image: {
-                data: fs.readFileSync(`${__dirname}\\uploads\\${req.file.filename}`),
-                contentType: 'image/png'
+                // data: fs.readFileSync(`${__dirname}\\uploads\\${req.file.filename}`),
+                data: req.file.buffer.toString("base64"),
+                contentType: req.file.mimetype
             }
         }, (err, item) => {
             if (err) {
                 res.json({ err });
             }
             else {
-                res.json({ item });
+                res.send("Item added successfully!");
             }
         })
     } catch (error) {
+        console.log(error);
         res.json({ error, message: "Server Error Occured! Try Again Later!" });
     }
 
@@ -167,8 +179,9 @@ router.post('/edit/:id', [upload.single('image'), fetchuser], async (req, res) =
                     "price": price,
                     "info": info,
                     "image": {
-                        data: fs.readFileSync(`${__dirname}\\uploads\\${req.file.filename}`),
-                        contentType: 'image/png'
+                        // data: fs.readFileSync(`${__dirname}\\uploads\\${req.file.filename}`),
+                        data: req.file.buffer.toString('base64'),
+                        contentType: req.file.mimetype
                     }
                 }
             }, (err, item) => {

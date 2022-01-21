@@ -37,7 +37,7 @@ export default function Products() {
                     return (
                         <div key={product._id} className="shadow-lg rounded-2xl bg-white sm:w-64 m-auto p-2 mt-2">
                             <Link to={`/product/${product._id}`} >
-                                <img src={product.image ? `data:${product.image.contentType};base64,${bufferToBase64(product.image.data.data)}` : img} alt="adidas" style={{ height: '170px', width: '240px' }} className="p-4 m-auto" />
+                                <img src={product.image ? `data:${product.image.contentType};base64,${bufferToBase64(product.image.data)}` : img} alt="adidas" style={{ height: '170px', width: '240px' }} className="p-4 m-auto" />
                             </Link>
 
                             <div className="bg-pink-200 m-3 p-4 rounded-lg">

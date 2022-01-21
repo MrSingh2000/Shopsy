@@ -29,6 +29,7 @@ router.post('/register', [
         let user = await User.findOne({ mail: mail });
         if (user) {
             res.status(401).json({ error: "User already Exists" });
+            return;
         }
 
         // encrypting the password
@@ -86,6 +87,7 @@ router.post('/login', [
         const authToken = jwt.sign(data, jwtToken);
         res.status(200).json({ authToken });
     } catch (err) {
+        console.log(err);
         res.json({ error: "Server Error Occured! Try again Later" });
     }
 
