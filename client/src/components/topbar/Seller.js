@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { notify } from '../commonFunctions';
 import noImg from '../icons/no_card.jpg';
+import loaderGif from "../icons/loader1.gif";
+import { setLoader } from '../state/action-creaters/loaderActions';
 
 export default function Seller() {
     let navigate = useNavigate();
@@ -17,7 +19,11 @@ const authToken = useSelector(state => state.authToken);
     const [img, setimg] = useState(null);
     const [tempImg, settempImg] = useState(null);
 
+    // For loader
+    const loader = useSelector(state => state.loader);
+
     const submitProduct = (e) => {
+        setLoader(true);
         e.preventDefault();
         let data = new FormData();
         data.append("image", img);
@@ -42,14 +48,20 @@ const authToken = useSelector(state => state.authToken);
                 return;
             }
             notify("Product Submitted Successfully!", "success");
-            // navigate("/");
+            setLoader(false);
+            navigate("/");
         }).catch((err) => {
             console.log('error: ', err);
             notify(err, "error");
+            setLoader(false);
         })
     }
 
-    return (
+    return loader ? (
+        <div className="flex justify-center items-center h-screen">
+            <img src={loaderGif} alt="loading..." />
+        </div>
+    ) : (
         <div className="flex justify-around items-center mt-5">
             <div className="bg-gradient-to-b from-blue-600 to-pink-100">
                 <div className="w-full">

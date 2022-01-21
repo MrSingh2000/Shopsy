@@ -49,7 +49,7 @@ export default function Cart() {
                                         <div className="select-none cursor-pointer flex flex-1 items-center p-4">
                                             <div className="flex flex-col w-10 h-10 justify-center items-center mr-4">
                                                 <a href="#" className="block relative">
-                                                    <img alt="image" src={product.image ? `data:${product.image.contentType};base64,${bufferToBase64(product.image.data.data)}` : img} className="mx-auto object-cover rounded-full h-10 w-10 " />
+                                                    <img alt="image" src={product.image ? `data:${product.image.contentType};base64,${bufferToBase64(product.image.data)}` : img} className="mx-auto object-cover rounded-full h-10 w-10 " />
                                                 </a>
                                             </div>
                                             <div className="flex-1 pl-1 mr-16">
