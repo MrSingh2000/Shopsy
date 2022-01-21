@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cors());
 // app.use(express.json({limit: '10mb'}));
 app.get('/', (req, res) => {
-  res.send("Welcome to Shopsy Backend Homepage!");
+  // res.send("Welcome to Shopsy Backend Homepage!");
+  res.sendFile(`${__dirname}/pages/backendHomepage.html`);
 });
 
 app.use('/api/auth', require('./routes/auth'));
