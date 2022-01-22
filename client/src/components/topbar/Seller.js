@@ -87,8 +87,8 @@ const authToken = useSelector(state => state.authToken);
                                             <option value="none" selected disabled hidden>Select an Option</option>
                                             <option value="clothing">Clothing</option>
                                             <option value="household">Household</option>
-                                            <option value="shoes">Electronics</option>
-                                            <option value="shoes">Others</option>
+                                            <option value="electronics">Electronics</option>
+                                            <option value="others">Others</option>
                                         </select>
                                     </div>
                                 </div>

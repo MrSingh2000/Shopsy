@@ -1,4 +1,5 @@
 [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![LinkedIn][linkedin-shield]][linkedin-url]
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -6,7 +7,7 @@
     <img src="client/public/logo512.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Shopsy</h3> :computer:
+<h3 align="center">Shopsy :computer:</h3>
 
   <p align="center">
     A MERN stack based E-Commerce application.
@@ -47,6 +48,8 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://myshopsy.netlify.app)
 
+This is a personal project based on mainly MERN stack. Tried to make a e-commerce application with various features, although there is always a scope to make the application better, So if you wanna add your taste to the existing application, feel free to fork the repo and just start working on your local machine!
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
@@ -64,32 +67,57 @@
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Set up the project locally on your system following instructions on setting up your project.
+To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+Installing latest Package Manager
 
 - npm
   ```sh
   npm install npm@latest -g
   ```
+- yarn
+  ```sh
+  yarn install yarn@latest -g
+  ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/MrSingh2000/Shopsy.git
    ```
-3. Install NPM packages
+2. Install Backend & Frontend packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
+   ```sh
+   cd .\client\ npm install
+   ```
+3. Setting up environment variables in `.env`
+   `Backend`
+
+   ```txt
+   MONGODB_URI = 'my_mongodb'
+   JWT_SECRET = 'your_jwt_secret'
+   HOSTNAME = 'localhost:5000'
+   ```
+
+   `Frontend`
+
+   ```txt
+   REACT_APP_HOST = 'localhost:5000'
+   ```
+
+4. Start the server
+   ```sh
+   node .\index.js
+   ```
+5. Start the client application
+   ```sh
+   npm run start
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -97,10 +125,22 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 
 ## Usage
+I tried to add various features to the e-commerce application, some of them are listed :-
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+#### Login/Signup
+![login-signup]
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+#### Add a Product
+![add-product]
+
+#### Check Added Products
+![check-added-product]
+
+#### Surf Products
+![surf-products]
+
+#### Add Product to Cart
+![add-cart]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -126,3 +166,9 @@ Project Link: [https://github.com/MrSingh2000/Shopsy](https://github.com/MrSingh
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/anshuman-singh-856991201
 [product-screenshot]: readme_assets/screenshot.png
+[login-signup]: readme_assets/login.gif
+[add-product]: readme_assets/addproduct.gif
+[check-added-product]: readme_assets/checkproduct.gif
+[surf-products]: readme_assets/surf.gif
+[add-cart]: readme_assets/cart.gif
+
