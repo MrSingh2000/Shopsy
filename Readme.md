@@ -97,6 +97,7 @@ Installing latest Package Manager
    cd .\client\ npm install
    ```
 3. Setting up environment variables in `.env`
+   
    `Backend`
 
    ```txt
