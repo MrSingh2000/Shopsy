@@ -51,7 +51,7 @@
 
 ### Built With
 
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" /> [React.js](https://reactjs.org/)
+- [React.js](https://reactjs.org/)
 - [NodeJS](https://nodejs.org/)
 - [ExpressJS](http://expressjs.com/)
 - [Redux](https://redux.js.org/)
@@ -125,4 +125,4 @@ Project Link: [https://github.com/MrSingh2000/Shopsy](https://github.com/MrSingh
 [issues-url]: https://github.com/MrSingh2000/Shopsy/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/anshuman-singh-856991201
-[product-screenshot]: readme_assets\screenshot.png
+[product-screenshot]: readme_assets/screenshot.png
